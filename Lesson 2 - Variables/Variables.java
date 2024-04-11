@@ -13,6 +13,15 @@ public class Variables {
         num = 10;
 
         System.out.println(num);
+
+        int num1 = 20;
+        int num2 = 30;
+
+        System.out.println("Addition = "+(num1+num2));
+
+        // Naming conventions help maintain code readability.
+        // Constants are variables with fixed values.
+        // Variable scope and lifetime determine where and how long variables can be accessed.
     }
    
 
