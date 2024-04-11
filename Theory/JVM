@@ -1,0 +1,21 @@
+JVM - Java Virtual Machiene 
+
+Code doesent work directly on hardware
+Since Java is platform independent, all this is possible because of JVM
+
+But JVM is platform dependent (Eg. Not supported on IOS)
+
+
+
+Java Code --> Compiler (javac) --> Byte Code --> JVM --> OS -> Hardware
+
+ This diagram illustrates the process of executing Java code:
+ 
+ 1. Java source code is compiled by the Java compiler (javac) into bytecode (.class files).
+ 
+ 2. Bytecode is platform-independent and can be executed on any system with a compatible JVM.
+
+ 3. The JVM loads and executes the bytecode, interacting with the underlying operating system as necessary.
+
+ 4. The operating system manages hardware resources and facilitates communication between the JVM and hardware.
+    
