@@ -35,11 +35,13 @@ public class AssignmentOperators {
 
         //Pre increment and Post Increment
 
-        int result = x;
+    
         System.out.println(++x); // first increment then fetch
         System.out.println(x++); // first fetch then increment
         
         //Therefore both outputs will be 11
+
+        
 
 
 
