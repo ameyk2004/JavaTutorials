@@ -8,7 +8,6 @@ class Calculator{
         num2 = n2;
     }
     int add() // adding values with using constructor
-    
     {
         return num1 + num2;
     }
@@ -18,9 +17,6 @@ public class Classes {
     public static void main(String args[])
     {
         Calculator calc = new Calculator(100, 200);
-        
-        int a = 100;
-        int b = 200;
 
         System.out.println("Addition is : " + calc.add());
     }
