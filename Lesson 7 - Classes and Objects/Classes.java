@@ -21,3 +21,5 @@ public class Classes {
         System.out.println("Addition is : " + calc.add());
     }
 }
+
+// this creates separate class file
