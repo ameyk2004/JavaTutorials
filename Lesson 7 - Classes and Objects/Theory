@@ -2,4 +2,7 @@ Object
 - has a property and a behaviour
 
 Class
--Template of Object
+- Template of Object
+- Blue Print of an Object
+
+JVM says its my job to create an object provide me a blue print
