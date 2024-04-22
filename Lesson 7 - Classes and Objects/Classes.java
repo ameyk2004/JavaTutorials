@@ -1,23 +1,27 @@
 class Calculator{
+    int num1;
+    int num2;
 
-    Calculator()
+    Calculator(int n1, int n2)
     {
-        System.out.println("Object Created");
+        num1 = n1;
+        num2 = n2;
     }
-    int add(int a, int b) // adding values with passing parameters
+    int add() // adding values with using constructor
+    
     {
-        return a + b;
+        return num1 + num2;
     }
 }
 
 public class Classes {
     public static void main(String args[])
     {
-        Calculator calc = new Calculator();
+        Calculator calc = new Calculator(100, 200);
         
         int a = 100;
         int b = 200;
 
-        System.out.println("Addition is : " + calc.add(a, b));
+        System.out.println("Addition is : " + calc.add());
     }
 }
