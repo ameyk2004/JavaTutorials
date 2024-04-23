@@ -8,9 +8,6 @@ public class JaggedArrays {
         nums[1] = new int[3];
         nums[2] = new int[4];
         nums[3] = new int[2];
-
-    
-
         // Print the elements of the jagged array
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums[i].length; j++) {
