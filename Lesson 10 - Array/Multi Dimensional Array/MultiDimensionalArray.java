@@ -1,17 +1,24 @@
 public class MultiDimensionalArray{
     public static void main(String args[])
     {
-        int multiDimArr[][] = new int[4][4];
+
+        int x = (int)(Math.random()*10);
+        int y = (int)(Math.random()*10);
+        int multiDimArr[][] = new int[x][y];
+
+        System.out.println("Matrix Size : "+x+"x"+y);
 
         // System.out.println(multiDimArr[0][0]);
+        // Creating Random Matrix
 
 
-        //Traversing
+
         for(int i=0;i<multiDimArr.length ;i++)
         {
             for(int j = 0;j<multiDimArr[0].length; j++)
             {
-                System.out.print(multiDimArr[i][j]+ " ");
+                int num = (int)(Math.random()*10);
+                System.out.print(num+ " ");
             }
             System.out.println();
         }
