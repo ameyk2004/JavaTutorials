@@ -11,6 +11,11 @@ class Mobile{
         this.price = p;
         this.name = n;
     }
+
+    void display()
+    {
+        System.out.println("\n\nBrand : "+this.brand+"\nPrice : "+this.price+"\nName : "+this.name);
+    }
 };
 public class StaticVaraible {
     public static void main(String[] args) {
@@ -18,6 +23,13 @@ public class StaticVaraible {
         Mobile m1 = new Mobile("Apple", 180000, "IPHONE 13");
         Mobile m2 = new Mobile("Samsung", 9000, "M30");
         Mobile m3 = new Mobile("Nokia", 7800, "E 51");
+
+        Mobile mobiles[] = {m1,m2,m3};
+
+        for(Mobile mob : mobiles)
+        {
+            mob.display();
+        }
     }
     
 }
