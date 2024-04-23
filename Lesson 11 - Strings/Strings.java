@@ -13,5 +13,24 @@ public class Strings {
         System.out.println("Index of 'x': " + name.indexOf('x'));
         System.out.println("String starts with 'My': " + name.startsWith("My"));
         System.out.println("String ends with 'me': " + name.endsWith("me"));
+
+
+        //String constant pool
+
+        //The String constant pool is a special area in the Java heap memory 
+        //where Java stores string literals to optimize memory usage and 
+        //improve performance.
+
+
+        //New object is not created if same string is encountered
+
+        //In the code snippet, str1 and str2 are two string variables initialized with the same string literal "Hello Java !".
+        //Both str1 and str2 refer to string objects created in the string constant pool.
+
+        String str1 = "Hello Java !";
+        String str2 = "Hello Java !";
+        System.out.println("\nString Constant Pool");
+        System.out.println(str1 == str2);
+
     }
 }
