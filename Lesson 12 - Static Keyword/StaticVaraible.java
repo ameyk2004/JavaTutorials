@@ -10,12 +10,16 @@ class Mobile{
         this.brand = b;
         this.price = p;
         this.name = n;
+
+        no_of_phones += 1;
     }
 
     void display()
     {
         System.out.println("\n\nBrand : "+this.brand+"\nPrice : "+this.price+"\nName : "+this.name);
     }
+
+
 };
 public class StaticVaraible {
     public static void main(String[] args) {
@@ -30,6 +34,8 @@ public class StaticVaraible {
         {
             mob.display();
         }
+
+        System.out.println(Mobile.no_of_phones);
     }
     
 }
