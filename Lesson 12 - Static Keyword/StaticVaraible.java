@@ -11,8 +11,9 @@ class Mobile{
         this.price = p;
         this.name = n;
 
-        no_of_phones += 1;
+        no_of_phones += 1; // Incrementing the static variable
     }
+    
 
     void display()
     {
@@ -33,9 +34,20 @@ public class StaticVaraible {
         for(Mobile mob : mobiles)
         {
             mob.display();
+
         }
 
         System.out.println(Mobile.no_of_phones);
     }
     
 }
+
+/*
+Static Variable Notes:
+1. Static variables belong to the class rather than individual instances of the class.
+2. They are shared among all instances of the class and are initialized only once at the start of the program.
+3. In this example, 'no_of_phones' is a static variable that tracks the total number of mobile phones created.
+4. It is incremented in the constructor whenever a new mobile phone object is created.
+5. Static variables can be accessed using the class name, e.g., Mobile.no_of_phones.
+6. They are useful for storing data that needs to be shared across all instances of a class.
+*/
