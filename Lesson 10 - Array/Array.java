@@ -5,7 +5,7 @@ public class Array {
         
         nums[0] = 100;
 
-        System.out.println(nums[0]);
+        System.out.println(nums[1]);
 
     }
 }
