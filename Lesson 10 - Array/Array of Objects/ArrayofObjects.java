@@ -36,12 +36,11 @@ public class ArrayofObjects {
 
         Student students[] = {s1,s2,s3};
 
+        //Enhanced For loop
         for(Student stud : students)
         {
             stud.print();
         }
-
-
     }
     
 }
