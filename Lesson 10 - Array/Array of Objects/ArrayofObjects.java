@@ -2,6 +2,13 @@ class Student{
     int rollno;
     int marks;
     String name;
+
+    Student(String n,int r, int m)
+    {
+        this.name = n;
+        this.rollno = r;
+        this.marks = m;
+    }
 }
 
 public class ArrayofObjects {
@@ -13,6 +20,11 @@ public class ArrayofObjects {
         // {
         //     System.out.print(n + " ");
         // }
+
+
+        Student s1 = new Student("Amey", 21237, 87);
+        Student s2 = new Student("Tirthraj", 21243, 92);
+        Student s3 = new Student("Advait", 21228, 100);
     }
     
 }
