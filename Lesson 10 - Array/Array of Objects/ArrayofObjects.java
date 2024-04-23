@@ -9,6 +9,14 @@ class Student{
         this.rollno = r;
         this.marks = m;
     }
+
+    void print()
+    {
+        System.out.println("\nStudent Details");
+        System.out.println("Name : "+this.name);
+        System.out.println("Roll No : "+this.rollno);
+        System.out.println("Marks : "+this.marks);
+    }
 }
 
 public class ArrayofObjects {
@@ -25,6 +33,15 @@ public class ArrayofObjects {
         Student s1 = new Student("Amey", 21237, 87);
         Student s2 = new Student("Tirthraj", 21243, 92);
         Student s3 = new Student("Advait", 21228, 100);
+
+        Student students[] = {s1,s2,s3};
+
+        for(Student stud : students)
+        {
+            stud.print();
+        }
+
+
     }
     
 }
