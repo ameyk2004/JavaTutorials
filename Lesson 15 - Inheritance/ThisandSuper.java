@@ -37,8 +37,6 @@ public class ThisandSuper {
         System.out.println((obj.getClass())); // prints the class
 
         //first the basd class onstructor is called
-
-        
     }
     
 }
