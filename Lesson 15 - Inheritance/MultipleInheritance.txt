@@ -1,0 +1,4 @@
+Java doesn't support multiple inheritance mainly to avoid the complexities and ambiguities 
+associated with it, like the diamond problem. 
+Instead, Java encourages interface implementation, which provides similar flexibility without the drawbacks of multiple inheritance, 
+promoting simpler and more maintainable code.
