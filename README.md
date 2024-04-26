@@ -18,7 +18,10 @@ Welcome to my Java tutorials repository! Here, you'll find the contents of my le
 
 7. [Lesson 7: Classes](Lesson%207%20-%20Classes/): Dive into the concept of classes and objects in Java, including constructors, methods, and instance variables.
 
-8. [Lesson 8: Methods](Lesson%208%20-%20Methods/): Learn about methods in Java, including method declaration, parameters, and return types.
+8. [Lesson 8: Methods](Lesson%208%20-%20Methods/):
+'''
+Learn about methods in Java, including method declaration, parameters, and return types.
+'''
 
 9. [Lesson 9: Method Overloading](Lesson%209%20-%20Method%20Overloading/): Understand method overloading in Java, where multiple methods have the same name but different parameters.
 
