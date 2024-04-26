@@ -18,7 +18,6 @@ class Human{
         return this.name;
     }
         // now accessible in same class
-
 }
 
 
