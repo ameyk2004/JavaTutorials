@@ -1,6 +1,6 @@
 # Java Tutorials
 
-Welcome to my Java tutorials repository! Here, you'll find the contents of my learnings from Java tutorials by Kulesko channel.
+Welcome to my Java tutorials repository! Here, you'll find the contents of my learnings from Java tutorials by Tulesko channel.
 
 ## Lessons Overview
 
