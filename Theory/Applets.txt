@@ -1,0 +1,10 @@
+- Internet helped java to bring it to the forefront and java influenced internet by inventing applets.
+- applets expanded scope of internet
+- addresses also security and Portability
+
+applets
+- special program transmitted over internet and executed on client side
+- small ui programs la help kartat to move from server side to client side
+
+security
+- 
