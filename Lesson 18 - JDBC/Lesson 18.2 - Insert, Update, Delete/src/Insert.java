@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Insert {
+public class INSERT{
 
     private static final String dbUrl = "jdbc:mysql://127.0.0.1:3306/college";
     private static final String username = "root";
