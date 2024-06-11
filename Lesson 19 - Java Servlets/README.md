@@ -4,6 +4,8 @@
 
 <a href="#simple-servlet-prgram"><li>Simple Servlet Program</li></a>
 
+<a href="#servlet-from-servlet"><li>Calling Servlet from Servlet</li></a>
+
 
 <h1 id="setup">Project - Setup </h1>
 
@@ -31,7 +33,7 @@ Before you begin, ensure you have met the following requirements:
    - Ensure `Generate web.xml deployment descriptor` is checked.
    - Click `Finish`.
 
-
+<hr>
 <h1 id="simple-servlet-prgram">Simple Servlet Program</h1>
 
 In this example we are buiding a simple HTML page which is a form which takes two numbers input frm users adds them and then displays it on`\add` route.
@@ -106,3 +108,96 @@ In this example we are buiding a simple HTML page which is a form which takes tw
    - Open a web browser.
    - Navigate to `http://localhost:8080/MyWebApp/hello` (assuming default Tomcat port and context path).
 
+<hr>
+<h1 id="servlet-from-servlet">Calling Servlet From Servlet</h1>
+
+In Java a Servlet can be called from another Servlet with the help of Request Dispacther.
+
+The RequestDispatcher interface provides a mechanism to forward a request from one servlet to another resource, such as another servlet, JSP page, or HTML file, on the server. This is useful for modularizing the processing logic of web applications and for creating reusable components.
+
+Main Methods
+The RequestDispatcher interface defines two main methods:
+
+forward(HttpServletRequest request, HttpServletResponse response)
+include(HttpServletRequest request, HttpServletResponse response)
+
+To get Servlet
+```java
+RequestDispatcher dispatcher = request.getRequestDispatcher("/path");
+dispacther.forward(request, response);
+```
+
+To transfer results generated in one servlet to another we can add `set attribute` in request;
+```java
+request.setAttribute('result', result);
+```
+
+To fetch this in another servlet
+```java
+request.getAtrribute('result');
+```
+
+Let Us see below `Example` where Aim is to first calculate the Addition of two numbers received from above form.
+Then call squate servlet to display square of two numbers.
+
+<h2>AddServlet.java</h2>
+
+```java
+    package com.ameyTech;
+
+    import java.io.IOException;
+
+    import javax.servlet.RequestDispatcher;
+    import javax.servlet.ServletException;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    public class AddServlet extends HttpServlet {
+        
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+            // Extracting the values of 'num1' and 'num2' parameters from the request
+            int num1 = Integer.parseInt(request.getParameter("num1"));
+            int num2 = Integer.parseInt(request.getParameter("num2"));
+            
+            // Performing addition operation
+            int result = num1 + num2;
+            
+            request.setAttribute("result", result); // forwards attribute to other servlet
+            
+            RequestDispatcher rd = request.getRequestDispatcher("sq");
+            rd.forward(request, response);
+            
+        }
+    }
+```
+
+<h2>SqServlet.java</h2>
+
+```java
+    package com.ameyTech;
+
+    import java.io.IOException;
+    import java.io.PrintWriter;
+
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    public class SqServlet extends HttpServlet {
+        
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+        {
+            PrintWriter out = response.getWriter();
+            
+            int result = (int) request.getAttribute("result");
+            
+            result *= result;
+            
+            out.println("Result of Square = "+ result);
+        }
+
+    }
+```
+
+DO NOT FORGET TO ADD SERVLET IN `web.xml` file as it is `Deployment Descriptor`
