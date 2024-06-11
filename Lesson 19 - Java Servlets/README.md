@@ -6,6 +6,8 @@
 
 <a href="#servlet-from-servlet"><li>Calling Servlet from Servlet</li></a>
 
+<a href="#sendRedirect"><li>sendRedirect in Java Servlets</li></a>
+
 
 <h1 id="setup">Project - Setup </h1>
 
@@ -201,3 +203,61 @@ Then call squate servlet to display square of two numbers.
 ```
 
 DO NOT FORGET TO ADD SERVLET IN `web.xml` file as it is `Deployment Descriptor`
+
+<hr>
+<h1 id="sendRedirect">sendRedirect in Java Servlets</h1>
+
+The `sendRedirect` method is part of the `HttpServletResponse interface`. It is used to redirect the client's request to a different URL. This URL can be within the same server or on a different server. 
+
+
+When a servlet calls sendRedirect, the web server sends an HTTP response to the client with status code 302 (Found) along with the new URL. The client's browser then makes a new request to this URL.
+
+`(In total 2 requests are made by client)`
+
+### How It Works
+
+`Client-Side Redirect` : Unlike RequestDispatcher.forward(), which performs a server-side forward, sendRedirect results in a client-side redirect. The client’s browser is instructed to navigate to a new URL.
+
+
+`HTTP Status Code` : The server sends an HTTP status code 302 (Found) to the client along with the new URL in the Location header.
+
+`New Request`: The client’s browser makes a new request to the specified URL, losing all request data (parameters, attributes) from the original request.
+
+### Example
+
+```java
+public class AddServlet extends HttpServlet {
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // Extracting the values of 'num1' and 'num2' parameters from the request
+        int num1 = Integer.parseInt(request.getParameter("num1"));
+        int num2 = Integer.parseInt(request.getParameter("num2"));
+        
+        // Performing addition operation
+        int result = num1 + num2;
+        
+        //Here as you can see parameter is passed allong with query string
+        //The Sq Servlet will fetch result in doGet method by .getParameter
+        response.sendRedirect("sq?result="+result);
+    }
+}
+```
+
+#### SqServlet class
+
+```java
+public class SqServlet extends HttpServlet {
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+	{
+		PrintWriter out = response.getWriter();
+		
+		int result = Integer.parseInt(request.getParameter("result")); // getParameter used to fetch data
+		
+		result *= result;
+		
+		out.println("Result of Square = "+ result);
+	}
+
+}
+```
