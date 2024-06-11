@@ -1,4 +1,11 @@
-# Project - SETUP
+# Contents
+
+<a href="#setup"><li>Project - Setup</li></a>
+
+<a href="#simple-servlet-prgram"><li>Simple Servlet Program</li></a>
+
+
+<h1 id="setup">Project - Setup </h1>
 
 ## Prerequisites
 
@@ -24,40 +31,68 @@ Before you begin, ensure you have met the following requirements:
    - Ensure `Generate web.xml deployment descriptor` is checked.
    - Click `Finish`.
 
-5. **Create a Servlet**:
-   - Right-click on `Java Resources` > `src` folder.
-   - Select `New` > `Servlet`.
-   - Enter the `Class Name` (e.g., `MyServlet`).
-   - Specify the package name (e.g., `com.myapp`).
-   - Click `Next`.
 
-6. **Configure the Servlet Mapping**:
-   - Map the servlet to a URL pattern (e.g., `/hello`).
+<h1 id="simple-servlet-prgram">Simple Servlet Program</h1>
+
+In this example we are buiding a simple HTML page which is a form which takes two numbers input frm users adds them and then displays it on`\add` route.
+
+## Steps to Create Files
+
+1. **Create Simple Html File in /src**:
+   - Right-click on the project in the `Project Explorer`.
+   - Select `Create new Html File`.
+
+2. **Add New Servlet**:
+   - Right-click on the project in the `Project Explorer`.
+   - Select `Create new Class File`.
+   - Enter package name `eg. com.ameyTech`
+   - Once Class file is created extend it with HttpServlet class
+   - Here is example Code 
+
+   ```java
+    package com.ameyTech;
+
+    import java.io.IOException;
+
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest; 
+    import javax.servlet.http.HttpServletResponse; 
+
+    // Defines a public class AddServlet that extends HttpServlet, which provides the framework for handling HTTP requests and responses
+    public class AddServlet extends HttpServlet {
+        
+        // Overrides the service method of HttpServlet to handle HTTP requests
+        public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
+            // Retrieves the value of the "num1" parameter from the request, parses it as an integer, and assigns it to num1
+            int num1 = Integer.parseInt(request.getParameter("num1"));
+            int num2 = Integer.parseInt(request.getParameter("num2"));
+            
+            int result = num1 + num2;
+            
+            // Writes the result of the addition to the HTTP response
+            response.getWriter().println("Result of " + num1 + " + " + num2 + " = " + result);
+        }
+    }
+   ```
+
+   3. **Configure the Servlet Mapping**:
+   - Map the servlet to a URL pattern (e.g., `/add`).
    - Click `Finish`.
 
-7. **Implement the Servlet**:
-   - Open the `MyServlet.java` file.
-   - Implement the `doGet` or `doPost` method. Example:
-     ```java
-     package com.myapp;
-
-     import java.io.IOException;
-     import javax.servlet.ServletException;
-     import javax.servlet.annotation.WebServlet;
-     import javax.servlet.http.HttpServlet;
-     import javax.servlet.http.HttpServletRequest;
-     import javax.servlet.http.HttpServletResponse;
-
-     @WebServlet("/hello")
-     public class MyServlet extends HttpServlet {
-         private static final long serialVersionUID = 1L;
-
-         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-             response.setContentType("text/html");
-             response.getWriter().println("<h1>Hello, World!</h1>");
-         }
-     }
-     ```
+   ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+        <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+        <display-name>Lesson 19.1 - Simple Servlet</display-name>
+        <servlet>
+                <servlet-name>AddServlet</servlet-name>
+                <servlet-class>com.ameyTech.AddServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>AddServlet</servlet-name>
+                <url-pattern>/add</url-pattern>
+        </servlet-mapping>
+        </web-app>
+   ```
 
 ## Steps to Run the Project
 
@@ -70,27 +105,4 @@ Before you begin, ensure you have met the following requirements:
 2. **Access the Application**:
    - Open a web browser.
    - Navigate to `http://localhost:8080/MyWebApp/hello` (assuming default Tomcat port and context path).
-
-## Optional: Verify Deployment Descriptor
-
-If you need to manually check or edit the deployment descriptor:
-
-1. **Open `web.xml`** in the `WEB-INF` directory.
-2. **Ensure the servlet and mapping are correctly defined**:
-   ```xml
-   <web-app xmlns="http://java.sun.com/xml/ns/javaee"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-                                http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-            version="3.0">
-       <servlet>
-           <servlet-name>MyServlet</servlet-name>
-           <servlet-class>com.myapp.MyServlet</servlet-class>
-       </servlet>
-       <servlet-mapping>
-           <servlet-name>MyServlet</servlet-name>
-           <url-pattern>/hello</url-pattern>
-       </servlet-mapping>
-   </web-app>
-```
 
