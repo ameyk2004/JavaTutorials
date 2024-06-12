@@ -8,6 +8,8 @@
 
 <a href="#sendRedirect"><li>sendRedirect in Java Servlets</li></a>
 
+<a href="#sessions-and-Cookies-in-servlets"><li>Sessions and Cookies in Servlets</li></a>
+
 
 <h1 id="setup">Project - Setup </h1>
 
@@ -259,5 +261,57 @@ public class SqServlet extends HttpServlet {
 		out.println("Result of Square = "+ result);
 	}
 
+}
+```
+<hr>
+<h1 id="sessions-and-Cookies-in-servlets">Sessions and Cookies in Servlets</h1>
+
+`HttpSession` is a mechanism provided by Java Servlets to maintain a user's state across multiple HTTP requests.
+`Cookies` are small pieces of data that are sent from a server and stored on the client’s machine. They are used to maintain stateful information between HTTP requests. 
+
+## HttpSession
+
+#### Creating/Accessing a Session:
+
+```java
+// creates a new session if one does not exist
+HttpSession session = request.getSession(); 
+
+// returns null if no session exists
+HttpSession session = request.getSession(false); 
+```
+
+#### Storing Data in a Session:
+
+```java
+session.setAttribute("key", value); 
+```
+
+#### Retrieving Data from a Session:
+
+```java
+Object value = session.getAttribute("key");
+```
+
+## Cookies
+
+#### Creating a Cookie
+
+```java
+Cookie cookie = new Cookie("name", "value");
+response.addCookie(cookie);
+```
+
+#### Retrieving a Cookie
+
+```java
+Cookie cookies[] = request.getCookies();
+
+for(Cookie cookie : cookies)
+{
+    if(cookie.getName().equals("name"))
+    {
+        String value = cookie.getValue();
+    }
 }
 ```
