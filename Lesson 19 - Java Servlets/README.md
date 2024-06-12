@@ -7,6 +7,8 @@
 5. [Sessions and Cookies in Servlets](#sessions-and-cookies-in-servlets)
 
 <hr>
+
+
 # Project - Setup
 
 ## Prerequisites
@@ -110,7 +112,8 @@ In this example we are buiding a simple HTML page which is a form which takes tw
    - Navigate to `http://localhost:8080/MyWebApp/hello` (assuming default Tomcat port and context path).
 
 <hr>
-<h1 id="servlet-from-servlet">Calling Servlet From Servlet</h1>
+
+# Calling Servlet From Servlet
 
 In Java a Servlet can be called from another Servlet with the help of Request Dispacther.
 
@@ -204,7 +207,8 @@ Then call squate servlet to display square of two numbers.
 DO NOT FORGET TO ADD SERVLET IN `web.xml` file as it is `Deployment Descriptor`
 
 <hr>
-<h1 id="sendRedirect">sendRedirect in Java Servlets</h1>
+
+# sendRedirect in Java Servlets
 
 The `sendRedirect` method is part of the `HttpServletResponse interface`. It is used to redirect the client's request to a different URL. This URL can be within the same server or on a different server. 
 
@@ -261,7 +265,8 @@ public class SqServlet extends HttpServlet {
 }
 ```
 <hr>
-<h1 id="sessions-and-Cookies-in-servlets">Sessions and Cookies in Servlets</h1>
+
+# Sessions and Cookies in Servlets
 
 `HttpSession` is a mechanism provided by Java Servlets to maintain a user's state across multiple HTTP requests.
 `Cookies` are small pieces of data that are sent from a server and stored on the client’s machine. They are used to maintain stateful information between HTTP requests. 
