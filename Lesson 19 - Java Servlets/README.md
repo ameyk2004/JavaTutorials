@@ -1,17 +1,13 @@
 # Contents
 
-<a href="#setup"><li>Project - Setup</li></a>
+1. [Project - Setup](#project---setup)
+2. [Simple Servlet Program](#simple-servlet-program)
+3. [Calling Servlet from Servlet](#calling-servlet-from-servlet)
+4. [sendRedirect in Java Servlets](#sendredirect-in-java-servlets)
+5. [Sessions and Cookies in Servlets](#sessions-and-cookies-in-servlets)
 
-<a href="#simple-servlet-prgram"><li>Simple Servlet Program</li></a>
-
-<a href="#servlet-from-servlet"><li>Calling Servlet from Servlet</li></a>
-
-<a href="#sendRedirect"><li>sendRedirect in Java Servlets</li></a>
-
-<a href="#sessions-and-Cookies-in-servlets"><li>Sessions and Cookies in Servlets</li></a>
-
-
-<h1 id="setup">Project - Setup </h1>
+<hr>
+# Project - Setup
 
 ## Prerequisites
 
@@ -38,7 +34,8 @@ Before you begin, ensure you have met the following requirements:
    - Click `Finish`.
 
 <hr>
-<h1 id="simple-servlet-prgram">Simple Servlet Program</h1>
+
+# Simple Servlet Program
 
 In this example we are buiding a simple HTML page which is a form which takes two numbers input frm users adds them and then displays it on`\add` route.
 
@@ -311,7 +308,7 @@ for(Cookie cookie : cookies)
 {
     if(cookie.getName().equals("name"))
     {
-        String value = cookie.getValue();
+        String value = cookie.getValue()
     }
 }
 ```
