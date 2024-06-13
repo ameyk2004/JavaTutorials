@@ -110,7 +110,7 @@ In this example we are buiding a simple HTML page which is a form which takes tw
 
 2. **Access the Application**:
    - Open a web browser.
-   - Navigate to `http://localhost:8080/MyWebApp/hello` (assuming default Tomcat port and context path).
+   - Navigate to `http://localhost:8080/MyWebApp/add` (assuming default Tomcat port and context path).
 
 <hr>
 
