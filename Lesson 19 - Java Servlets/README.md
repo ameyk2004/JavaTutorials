@@ -1,11 +1,12 @@
 # Contents
 
-1. [Project - Setup](#project---setup)
-2. [Simple Servlet Program](#simple-servlet-program)
-3. [Calling Servlet from Servlet](#calling-servlet-from-servlet)
-4. [sendRedirect in Java Servlets](#sendredirect-in-java-servlets)
-5. [Sessions and Cookies in Servlets](#sessions-and-cookies-in-servlets)
-
+- [Project - Setup](#project---setup)
+- [Simple Servlet Program](#simple-servlet-program)
+- [Calling Servlet from Servlet](#calling-servlet-from-servlet)
+- [sendRedirect in Java Servlets](#sendredirect-in-java-servlets)
+- [Sessions and Cookies in Servlets](#sessions-and-cookies-in-servlets)
+- [Servlet Config and Servlet Context](#servlet-config-and-servlet-context)
+- [Conclusion](#conclusion)
 <hr>
 
 
@@ -317,3 +318,138 @@ for(Cookie cookie : cookies)
     }
 }
 ```
+
+<hr>
+
+# Servlet Config and Servlet Context
+
+## Servlet Config
+
+`ServletConfig` is an object that contains configuration information for a single servlet. 
+
+It is used by the servlet container to pass initialization parameters to the servlet during its initialization phase. Each servlet has its own ServletConfig object.
+
+### Common Methods
+
+#### Getting Initialization Parameters:
+
+```java
+String paramValue = config.getInitParameter("paramName");
+```
+
+#### Getting Servlet Name:
+
+```java
+String servletName = config.getServletName();
+```
+
+#### Getting Servlet Context:
+
+```java
+String servletName = config.getServletName();
+```
+
+### Example
+
+`web.xml` file
+
+```xml
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.example.MyServlet</servlet-class>
+        <init-param>
+            <param-name>configParam</param-name>
+            <param-value>MyConfigValue</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/myservlet</url-pattern>
+    </servlet-mapping>
+</web-app>
+```
+
+`Servlet Usage`
+
+```java
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+public class MyServlet extends HttpServlet {
+    private String configValue;
+
+    @Override
+    public void init() throws ServletException {
+        ServletConfig config = getServletConfig();
+        configValue = config.getInitParameter("configParam");
+        System.out.println("Config Value: " + configValue);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().println("Config Value: " + configValue);
+    }
+}
+```
+## Servlet Context
+
+`ServletContext` is an interface that provides information about the web application, such as context parameters, and allows servlets to communicate with each other. It represents the servlet context in which the servlet is running.
+
+`Sevlet Usage`
+
+```java
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+public class MyServlet extends HttpServlet {
+    private ServletContext context;
+
+    @Override
+    public void init() throws ServletException {
+        context = getServletContext();
+        String contextValue = context.getInitParameter("contextParam");
+        System.out.println("Context Value: " + contextValue);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().println("Context Value: " + context.getInitParameter("contextParam"));
+    }
+}
+```
+`web.xml` Configuration
+
+```xml
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <context-param>
+        <param-name>contextParam</param-name>
+        <param-value>MyContextValue</param-value>
+    </context-param>
+</web-app>
+```
+
+#### Accessing Context from any Servlet
+
+```java
+ServletContext context = getServletContext();
+String contextValue = context.getInitParameter("contextParam");
+```
+<hr>
+
+# Conclusion
+
+With a solid understanding of servlets, you are now ready to proceed to the next topic: JavaServer Pages (JSP). JSPs enable you to create dynamic web content with ease by embedding Java code directly into HTML pages. This will enhance your ability to build more complex and interactive web applications.
+
+Proceed to the next topic: [JavaServer Pages (JSP)](Proceed to the next topic: [JavaServer Pages (JSP)](../Lesson%2020%20-%20JSP/jsp.md)
+)
+
+<hr>
