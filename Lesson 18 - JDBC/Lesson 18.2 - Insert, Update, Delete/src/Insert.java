@@ -2,8 +2,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
-public class INSERT{
+public class Insert {
 
     private static final String dbUrl = "jdbc:mysql://127.0.0.1:3306/college";
     private static final String username = "root";
@@ -66,6 +67,10 @@ public class INSERT{
         } catch (SQLException e) {
             // Print error if a SQL exception occurs
             System.out.println(e.getMessage());
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error entering");
         }
     
     }

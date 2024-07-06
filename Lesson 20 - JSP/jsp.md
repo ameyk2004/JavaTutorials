@@ -1,3 +1,0 @@
-# Index
-
-- [Introduction to JSP]
