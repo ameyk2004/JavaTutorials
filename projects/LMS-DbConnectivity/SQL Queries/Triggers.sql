@@ -22,3 +22,26 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER afterInBorrowingTransactions
+AFTER UPDATE ON BorrowingTransactions
+FOR EACH ROW
+BEGIN
+    DECLARE available_qty INT;
+
+    IF NEW.status = "returned" THEN
+        SELECT available_quantity INTO available_qty
+        FROM Books
+        WHERE id = NEW.book_id;
+
+        UPDATE Books 
+        SET available_quantity = available_qty + 1
+        WHERE id = NEW.book_id;
+    END IF;
+
+END //
+
+DELIMITER ;
+
