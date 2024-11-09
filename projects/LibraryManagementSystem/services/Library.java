@@ -1,9 +1,9 @@
-package services;
+package projects.LibraryManagementSystem.services;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import models.Book;
-import models.User;
+import projects.LibraryManagementSystem.models.Book;
+import projects.LibraryManagementSystem.models.User;
 
 public class Library {
     ArrayList<Book> booksInLibrary;

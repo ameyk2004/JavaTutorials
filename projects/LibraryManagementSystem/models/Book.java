@@ -1,4 +1,4 @@
-package models;
+package projects.LibraryManagementSystem.models;
 
 public class Book{
     int id;

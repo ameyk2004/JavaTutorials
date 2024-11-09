@@ -1,7 +1,8 @@
+package projects.LibraryManagementSystem;
 import java.util.Scanner;
 
-import models.User;
-import services.Library;
+import projects.LibraryManagementSystem.models.User;
+import projects.LibraryManagementSystem.services.Library;
 
 public class LibraryManagement {
     Library library;
